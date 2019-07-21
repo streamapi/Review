@@ -5,39 +5,14 @@ import java.util.Random;
 
 /**
  * @author ：stream
- * @date ：Created in 2019/7/20 17:51
+ * @date ：Created in 2019/7/20 20:05
  */
-public class BubbleSort {
+public class MregeSort {
     public static void main(String[] args) {
-////        Comparable[] seq = createSeq(0, 100000, 65535);
-//        Comparable[] seq = createSeq(0, 128, 4);
-//        System.out.println("Unsort:");
-//        show(seq);
-////        long time1 = System.currentTimeMillis();
-//        sort(seq);
-////        long time2 = System.currentTimeMillis();
-////        System.out.println(time2 -time1);
-//        System.out.println("Sorted:");
-//        show(seq);
-    }
 
+    }
     public static void sort(Comparable[] arr) {
-        int length = arr.length;
-        boolean flag = false;
-        for (int i = 0; i < length - 1; i++) {
-            for (int j = 0; j < length - 1 - i; j++) {
-                if (less(arr[j + 1], arr[j])) {
-                    flag = true;
-                    exch(arr, j, j + 1);
-                }
-                show(arr);
-            }
-            if (!flag) {
-                break;
-            } else {
-                flag = false;
-            }
-        }
+
     }
 
     private static boolean less(Comparable v, Comparable w) {

@@ -5,11 +5,11 @@ import java.util.Random;
 
 /**
  * @author ：stream
- * @date ：Created in 2019/7/20 17:51
+ * @date ：Created in 2019/7/20 20:04
  */
-public class BubbleSort {
+public class InsertSort {
     public static void main(String[] args) {
-////        Comparable[] seq = createSeq(0, 100000, 65535);
+//        //        Comparable[] seq = createSeq(0, 100000, 65535);
 //        Comparable[] seq = createSeq(0, 128, 4);
 //        System.out.println("Unsort:");
 //        show(seq);
@@ -23,20 +23,11 @@ public class BubbleSort {
 
     public static void sort(Comparable[] arr) {
         int length = arr.length;
-        boolean flag = false;
         for (int i = 0; i < length - 1; i++) {
-            for (int j = 0; j < length - 1 - i; j++) {
-                if (less(arr[j + 1], arr[j])) {
-                    flag = true;
-                    exch(arr, j, j + 1);
-                }
-                show(arr);
+            for (int j = i + 1; j > 0 && less(arr[j], arr[j - 1]); j--) {
+                exch(arr, j, j - 1);
             }
-            if (!flag) {
-                break;
-            } else {
-                flag = false;
-            }
+            show(arr);
         }
     }
 

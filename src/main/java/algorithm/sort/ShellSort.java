@@ -5,38 +5,36 @@ import java.util.Random;
 
 /**
  * @author ：stream
- * @date ：Created in 2019/7/20 17:51
+ * @date ：Created in 2019/7/20 20:04
  */
-public class BubbleSort {
+public class ShellSort {
     public static void main(String[] args) {
-////        Comparable[] seq = createSeq(0, 100000, 65535);
-//        Comparable[] seq = createSeq(0, 128, 4);
-//        System.out.println("Unsort:");
-//        show(seq);
-////        long time1 = System.currentTimeMillis();
-//        sort(seq);
-////        long time2 = System.currentTimeMillis();
-////        System.out.println(time2 -time1);
-//        System.out.println("Sorted:");
-//        show(seq);
+        //        Comparable[] seq = createSeq(0, 100000, 65535);
+        Comparable[] seq = createSeq(0, 128, 6);
+        System.out.println("Unsort:");
+        show(seq);
+//        long time1 = System.currentTimeMillis();
+        sort(seq);
+//        long time2 = System.currentTimeMillis();
+//        System.out.println(time2 -time1);
+        System.out.println("Sorted:");
+        show(seq);
     }
 
     public static void sort(Comparable[] arr) {
         int length = arr.length;
-        boolean flag = false;
-        for (int i = 0; i < length - 1; i++) {
-            for (int j = 0; j < length - 1 - i; j++) {
-                if (less(arr[j + 1], arr[j])) {
-                    flag = true;
-                    exch(arr, j, j + 1);
+        int step = 1;
+        while (step < length / 3) {
+            step = 3 * step + 1;
+        }
+        while (step >= 1) {
+            for (int i = step; i < length; i++) {
+                for (int j = i; j >= step && less(arr[j], arr[j - step]); j -= step) {
+                    exch(arr, j, j - step);
                 }
-                show(arr);
             }
-            if (!flag) {
-                break;
-            } else {
-                flag = false;
-            }
+            show(arr);
+            step = step / 3;
         }
     }
 
