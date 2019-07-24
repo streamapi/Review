@@ -56,8 +56,6 @@ public class QuickSort {
             exch(arr, i, j);
         }
         exch(arr, lo, j);
-        System.out.println(j);
-        show(arr);
         return j;
     }
 
