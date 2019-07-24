@@ -9,17 +9,17 @@ import java.util.Random;
  */
 public class QuickSort {
     public static void main(String[] args) {
-        //        Comparable[] seq = createSeq(0, 100000, 65535);
-        Comparable[] seq = createSeq(0, 128, 6);
-        System.out.println("Unsort:");
-        show(seq);
-        System.out.println();;
-//        long time1 = System.currentTimeMillis();
-        sort(seq, 0, seq.length - 1);
-//        long time2 = System.currentTimeMillis();
-//        System.out.println(time2 -time1);
-        System.out.println("Sorted:");
-        show(seq);
+//        //        Comparable[] seq = createSeq(0, 100000, 65535);
+//        Comparable[] seq = createSeq(0, 128, 6);
+//        System.out.println("Unsort:");
+//        show(seq);
+//        System.out.println();;
+////        long time1 = System.currentTimeMillis();
+//        sort(seq, 0, seq.length - 1);
+////        long time2 = System.currentTimeMillis();
+////        System.out.println(time2 -time1);
+//        System.out.println("Sorted:");
+//        show(seq);
     }
 
     public static void sort(Comparable[] arr) {

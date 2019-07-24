@@ -9,10 +9,55 @@ import java.util.Random;
  */
 public class MregeSort {
     public static void main(String[] args) {
-
+        Comparable[] seq = createSeq(0, 100000, 65535);
+//        Comparable[] seq = createSeq(0, 128, 6);
+//        System.out.println("Unsort:");
+//        show(seq);
+//        System.out.println();
+        ;
+        long time1 = System.currentTimeMillis();
+        sort(seq, 0, seq.length - 1, new Comparable[seq.length]);
+        long time2 = System.currentTimeMillis();
+        System.out.println(time2 -time1);
+//        System.out.println("Sorted:");
+//        show(seq);
     }
-    public static void sort(Comparable[] arr) {
 
+    public static void sort(Comparable[] arr, int lo, int hi, Comparable[] temp) {
+        if (hi <= lo) {
+            return;
+        }
+        int mid = (lo + hi) / 2;
+        sort(arr, lo, mid, temp);
+        sort(arr, mid + 1, hi, temp);
+        merge(arr, lo, mid, hi, temp);
+    }
+
+    private static void merge(Comparable[] arr, int lo, int mid, int hi, Comparable[] temp) {
+        int i = lo;
+        int j = mid + 1;
+        int t = 0;
+
+        while (i <= mid && j <= hi) {
+            if (less(arr[i], arr[j])) {
+                temp[t++] = arr[i++];
+            } else {
+                temp[t++] = arr[j++];
+            }
+        }
+
+        while (i <= mid) {
+            temp[t++] = arr[i++];
+        }
+        while (j <= hi) {
+            temp[t++] = arr[j++];
+        }
+
+        t = 0;
+        int tempLeft = lo;
+        while (tempLeft <= hi) {
+            arr[tempLeft++] = temp[t++];
+        }
     }
 
     private static boolean less(Comparable v, Comparable w) {
